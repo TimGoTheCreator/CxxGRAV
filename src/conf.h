@@ -1,14 +1,17 @@
 #pragma once
 #include <cmath>
+#include <string>
 
 struct Particle
 {
     double x, y;
     double vx, vy;
     double m;
+    double r;
+    std::string name;
 
-    Particle(double px, double py, double pvx, double pvy, double pm)
-        : x(px), y(py), vx(pvx), vy(pvy), m(pm) {}
+    Particle(double px, double py, double pvx, double pvy, double pm, double pr, const std::string&n)
+        : x(px), y(py), vx(pvx), vy(pvy), m(pm), r(pr), name(n) {}
 
 };
 
