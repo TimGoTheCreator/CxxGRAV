@@ -7,6 +7,8 @@
 
 ### Semi Euler is built on top of the [RayLib](https://github.com/raysan5/raylib) Library
 
+Contributions are welcomed. 
+
 # How to install Dependencies (Windows)
 Install MSYS2 From [msys2.org](https://msys2.org)
 then open the MinGW64 shell and type
