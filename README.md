@@ -1,6 +1,10 @@
 # SemiEuler
 Semi implicit Euler implementation in C++ to simulate interaction of N-Body objects
 
+![CI](https://github.com/TimGoTheCreator/SemiEuler/actions/workflows/cmake-multi-platform.yml/badge.svg)
+![Language](https://img.shields.io/badge/language-C++-blue.svg)
+![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)
+
 How to install Dependencies (Windows)
 Install MSYS2 From https://msys2.org
 then open the MinGW64 shell and type
