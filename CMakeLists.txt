@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.15)
 project(SemiEuler VERSION 0.9.0 LANGUAGES CXX)
 
@@ -68,26 +69,11 @@ if (WIN32)
     target_link_libraries(SemiEuler PRIVATE raylib opengl32 gdi32 winmm ws2_32)
 
     if (MSVC)
-        # Check for system libraries (Windows SDK)
-        find_library(OPENGL32_LIB opengl32)
-        find_library(GDI32_LIB gdi32)
-        find_library(WINMM_LIB winmm)
-        find_library(WS2_32_LIB ws2_32)
-
-        if (NOT OPENGL32_LIB OR NOT GDI32_LIB OR NOT WINMM_LIB OR NOT WS2_32_LIB)
-            message(WARNING "Missing MSVC system libraries. Running setup.sh to install dependencies...")
-            execute_process(
-                COMMAND bash ${CMAKE_SOURCE_DIR}/setup.sh
-                RESULT_VARIABLE setup_result
-            )
-            if (NOT setup_result EQUAL 0)
-                message(FATAL_ERROR "setup.sh failed. Please run it manually with administrator privileges.")
-            endif()
-        endif()
-
+        # On MSVC, system libs are provided by the Windows SDK — no setup.sh needed
         target_compile_options(SemiEuler PRIVATE /O2)
         target_link_options(SemiEuler PRIVATE /INCREMENTAL:NO)
     else()
+        # MinGW
         target_link_options(SemiEuler PRIVATE -s)
     endif()
 
