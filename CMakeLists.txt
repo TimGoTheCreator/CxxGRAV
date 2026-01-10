@@ -16,9 +16,17 @@ target_compile_options(SemiEuler PRIVATE -O2)
 
 # --- Auto-download Raylib per platform ---
 if (WIN32)
-    set(RAYLIB_URL https://github.com/raysan5/raylib/releases/download/5.5/raylib-5.5_win64_mingw-w64.zip)
-    set(RAYLIB_ARCHIVE ${CMAKE_BINARY_DIR}/raylib.zip)
-    set(RAYLIB_ROOT ${CMAKE_SOURCE_DIR}/lib)
+    if (MSVC)
+        # MSVC-compatible Raylib binary
+        set(RAYLIB_URL https://github.com/raysan5/raylib/releases/download/5.5/raylib-5.5_win64_msvc16.zip)
+        set(RAYLIB_ARCHIVE ${CMAKE_BINARY_DIR}/raylib_msvc.zip)
+        set(RAYLIB_ROOT ${CMAKE_SOURCE_DIR}/libmsvc)
+    else()
+        # MinGW-compatible Raylib binary
+        set(RAYLIB_URL https://github.com/raysan5/raylib/releases/download/5.5/raylib-5.5_win64_mingw-w64.zip)
+        set(RAYLIB_ARCHIVE ${CMAKE_BINARY_DIR}/raylib.zip)
+        set(RAYLIB_ROOT ${CMAKE_SOURCE_DIR}/lib)
+    endif()
 elseif(UNIX)
     set(RAYLIB_URL https://github.com/raysan5/raylib/releases/download/5.5/raylib-5.5_linux_amd64.tar.gz)
     set(RAYLIB_ARCHIVE ${CMAKE_BINARY_DIR}/raylib.tar.gz)
@@ -38,7 +46,7 @@ endif()
 message(STATUS "Extracting Raylib to ${RAYLIB_ROOT}")
 file(ARCHIVE_EXTRACT INPUT ${RAYLIB_ARCHIVE} DESTINATION ${RAYLIB_ROOT})
 
-# Detect the extracted subdirectory (e.g., raylib-5.5_win64_mingw-w64 or raylib-5.5_linux_amd64)
+# Detect the extracted subdirectory
 file(GLOB RAYLIB_SUBDIRS LIST_DIRECTORIES true "${RAYLIB_ROOT}/raylib-*")
 list(LENGTH RAYLIB_SUBDIRS _raylib_count)
 if (_raylib_count EQUAL 0)
@@ -58,7 +66,13 @@ if (WIN32)
     target_include_directories(SemiEuler PRIVATE ${RAYLIB_INCLUDE_DIR})
     target_link_directories(SemiEuler PRIVATE ${RAYLIB_LIB_DIR})
     target_link_libraries(SemiEuler PRIVATE raylib opengl32 gdi32 winmm ws2_32)
-    target_link_options(SemiEuler PRIVATE -s)
+
+    if (MSVC)
+        target_compile_options(SemiEuler PRIVATE /O2)
+        target_link_options(SemiEuler PRIVATE /INCREMENTAL:NO)
+    else()
+        target_link_options(SemiEuler PRIVATE -s)
+    endif()
 
 elseif(UNIX)
     # Check for system dependencies
@@ -81,4 +95,5 @@ elseif(UNIX)
     target_link_libraries(SemiEuler PRIVATE raylib m dl pthread X11 GL GLU)
     target_compile_options(SemiEuler PRIVATE -Wall -Wextra -Wpedantic)
 endif()
+
 install(TARGETS SemiEuler DESTINATION bin)
