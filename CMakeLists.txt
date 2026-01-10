@@ -32,7 +32,7 @@ if (WIN32)
 
 elseif(UNIX)
     # Linux headers + libs
-    target_include_directories(SemiEuler PRIVATE includelinux)
+    target_include_directories(SemiEuler PRIVATE include)
     target_link_directories(SemiEuler PRIVATE liblinux)
     target_link_libraries(SemiEuler PRIVATE raylib m dl pthread X11 GL GLU)
 
