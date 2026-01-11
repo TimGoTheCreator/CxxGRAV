@@ -17,7 +17,7 @@ pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake mingw-w64-x86_64-make
 ```
 
 # MSVC Dependencies
-For MSVC builds, Visual Studio 2022 with C++ Desktop Development workload is required.
+For MSVC（CL Compiler) builds, Visual Studio 2022 with C++ Desktop Development workload is required.
 Raylib and other system dependencies are auto-downloaded by CMake.
 
 # How to compile SemiEuler (CMake MSVC/MinGW64 Windows)
