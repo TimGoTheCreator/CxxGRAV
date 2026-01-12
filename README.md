@@ -34,9 +34,13 @@ mkdir build
 cd build
 cmake ..
 cmake --build . 
+cd bin
+./SemiEuler
 ```
 
-For this, Git is required
+For this, Git isrequiredn
+Note:
+for MSVC the directory of the binary output might change to Debug
 
 # How to install Dependencies (Ubuntu/Debian)
 ```bash
