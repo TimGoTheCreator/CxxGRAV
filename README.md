@@ -28,17 +28,21 @@ pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake mingw-w64-x86_64-make
 ```
 
 # MSVC Dependencies
-For MSV (CL Compiler) builds, Visual Studio 2022 with C++ Desktop Development workload is required.
+For MSVC (CL Compiler) builds, Visual Studio 2022 with C++ Desktop Development workload is required.
 Raylib and other system dependencies are auto-downloaded by CMake.
 
-# How to compile SemiEuler (CMake MSVC/MinGW64 Windows)
 
+# Quick start (For all Operating Systems) 
 ```bash
+git clone https://github.com/TimGoTheCreator/SemiEuler.git
+cd SemiEuler
 mkdir build
 cd build
 cmake ..
-cmake --build .
+cmake --build. 
 ```
+
+For this, Git is required
 
 # How to install Dependencies (Ubuntu/Debian)
 ```bash
@@ -60,13 +64,4 @@ sudo dnf install gcc make git cmake \
 ```bash
 sudo pacman -S gcc make git cmake \
     libx11 libxrandr libxi libxcursor libxinerama mesa
-```
-
-# How to compile SemiEuler (CMake Linux)
-
-```bash
-mkdir build
-cd build
-cmake ..
-cmake --build .
 ```
