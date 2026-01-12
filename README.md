@@ -7,6 +7,12 @@
 
 ### Semi Euler is built on top of the [RayLib](https://github.com/raysan5/raylib) Library
 
+### Roadmap:
+Priority 1: Camera, UI
+Priority 2: Add particles by clicking
+Priority 3: MacOS support
+Priority 4: Barnes-Hut
+
 Contributions are welcomed. 
 
 # How to install Dependencies (Windows)
@@ -17,7 +23,7 @@ pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake mingw-w64-x86_64-make
 ```
 
 # MSVC Dependencies
-For MSVC（CL Compiler) builds, Visual Studio 2022 with C++ Desktop Development workload is required.
+For MSV (CL Compiler) builds, Visual Studio 2022 with C++ Desktop Development workload is required.
 Raylib and other system dependencies are auto-downloaded by CMake.
 
 # How to compile SemiEuler (CMake MSVC/MinGW64 Windows)
