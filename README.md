@@ -38,7 +38,7 @@ cd bin
 ./SemiEuler
 ```
 
-For this, Git isrequiredn
+For this, Git is required
 Note:
 for MSVC the directory of the binary output might change to Debug
 
