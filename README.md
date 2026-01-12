@@ -9,9 +9,14 @@
 
 ### Roadmap:
 Priority 1: Camera, UI
+
 Priority 2: Add particles by clicking
-Priority 3: MacOS support
+
+Priority 3: Galaxy Simulation
+
 Priority 4: Barnes-Hut
+
+Priority 5: MacOS Support
 
 Contributions are welcomed. 
 
