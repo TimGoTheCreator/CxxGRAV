@@ -16,14 +16,27 @@ int main() {
     SetTargetFPS(0);
 
     double dt = 0.4;
+    double camX = 0.0;
+    double camY = 0.0;
     double simTime = 0.0;
     double scale = 1.5e6;
     int steps = 10000;
+    double camSpeed = 5000000;
+    bool paused = false;
 
     while (!WindowShouldClose()) {
-        if (IsKeyDown(KEY_W)) scale *= 1.005;
-        if (IsKeyDown(KEY_S)) scale /= 1.005;
+        if (IsKeyDown(KEY_W)) camY -= camSpeed;
+        if (IsKeyDown(KEY_S)) camY += camSpeed;
+        if (IsKeyDown(KEY_A)) camX -= camSpeed;
+        if (IsKeyDown(KEY_D)) camX += camSpeed;
+        if (IsKeyDown(KEY_UP)) scale *= 1.005;
 
+        if (IsKeyDown(KEY_DOWN)) scale /= 1.005;
+                if (IsKeyPressed(KEY_SPACE)) {
+            paused = !paused;
+        }
+
+        if(!paused) {
         for (int s = 0; s < steps; s++) {
             for (size_t i = 0; i < particles.size(); i++) {
                 for (size_t j = i + 1; j < particles.size(); j++) {
@@ -38,6 +51,7 @@ int main() {
 
             simTime += dt;
         }
+        }
 
         BeginDrawing();
         ClearBackground(BLACK);
@@ -51,8 +65,18 @@ int main() {
             else if (p.name == "Sun") color = YELLOW;
             else if (p.name == "Moon") color = GRAY;
 
-            DrawCircle((int)(p.x / scale) + 400, (int)(p.y / scale) + 300, radius, color);
+            DrawCircle(
+                (int)((p.x - camX) / scale) + 400,
+                (int)((p.y - camY) / scale) + 300,
+                radius,
+                color
+            );
         }
+
+        if (paused) {
+            DrawText("PAUSED", 10, 10, 20, WHITE);
+        }
+
         EndDrawing();
     }
 }
