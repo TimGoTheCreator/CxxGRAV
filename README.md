@@ -8,11 +8,13 @@
 ### Semi Euler is built on top of the [RayLib](https://github.com/raysan5/raylib) Library
 
 ## Roadmap
-- **Priority 1:** Camera, UI
-- **Priority 2:** Add particles by clicking
-- **Priority 3:** Galaxy simulation
-- **Priority 4:** Barnes–Hut
-- **Priority 5:** macOS support 
+- **Priority 1:** Add particles by clicking
+- **Priority 2:** Galaxy simulation
+- **Priority 3:** Barnes–Hut
+- **Priority 4:** macOS support 
+
+## Roadmap (Finished) 
+- **1** Camera, UI (DONE) 
 
 # How to install Dependencies (Windows)
 Install MSYS2 From [msys2.org](https://msys2.org)
