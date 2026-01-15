@@ -66,7 +66,9 @@ inline void GravityGPU(unsigned int ssbo, Shader compute, int count, float dt)
     rlEnableShader(compute.id);
 
     int groups = (count + 255) / 256;
-    rlComputeShaderDispatch(compute.id, groups, 1, 1);
+    rlEnableShader(compute.id);
+    rlComputeShaderDispatch(groups, 1, 1);
+    rlDisableShader();
 
     rlDisableShader();
 }
