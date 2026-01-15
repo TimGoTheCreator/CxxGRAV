@@ -6,7 +6,7 @@
 #include <string>
 
 int main() {
-    InitWindow(800, 600, "SemiEuler");
+    InitWindow(800, 600, "CxxGRAV");
     std::vector<Particle> particles;
     particles.emplace_back(0, 0, 0, 0, 1.99e30, 6.96e8, "Sun");
     particles.emplace_back(150000000000, 0, 0, 29780, 5.97e24, 6.37e6, "Earth");
