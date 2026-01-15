@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "=== SemiEuler dependency installer ==="
+echo "=== CxxGRAV dependency installer ==="
 
 if command -v apt >/dev/null; then
     echo "Detected Debian/Ubuntu. Installing packages..."
