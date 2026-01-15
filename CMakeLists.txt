@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.15)
-project(SemiEuler VERSION 0.9.0 LANGUAGES CXX)
+project(CxxGRAV VERSION 0.9.3 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -9,7 +9,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
 add_executable(CxxGRAV ${SOURCES})
 
-set_target_properties(SemiEuler PROPERTIES
+set_target_properties(CxxGRAV PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
 
