@@ -5,7 +5,7 @@
 ![Language](https://img.shields.io/badge/language-C++-blue.svg)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)
 
-### Semi Euler is built on top of the [RayLib](https://github.com/raysan5/raylib) Library
+### CxxGRAV is built on top of the [RayLib](https://github.com/raysan5/raylib) Library
 
 ## Roadmap
 - **Priority 1:** Add particles by clicking
@@ -30,7 +30,7 @@ Raylib and other system dependencies are auto-downloaded by CMake.
 
 # Quick start (For all Operating Systems) 
 ```bash
-git clone https://github.com/TimGoTheCreator/SemiEuler.git
+git clone https://github.com/TimGoTheCreator/CxxGRAV.git
 cd SemiEuler
 mkdir build
 cd build
