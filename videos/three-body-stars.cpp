@@ -1,10 +1,12 @@
+// Copyright 2026 Timofey Zakharchuk (GitHub: TimGoTheCreator)
+// Licensed under the Apache License, Version 2.0
 #include "conf.h"
 #include "raylib.h"
 #include <vector>
 #include <string>
 
 int main() {
-    InitWindow(800, 600, "SemiEuler");
+    InitWindow(800, 600, "CxxGRAV");
     std::vector<Particle> particles;
     particles.emplace_back(-5e10, 0, 0, 15000, 2e30, 7e8, "StarA");
     particles.emplace_back(5e10, 0, 0, -15000, 2e30, 7e8, "StarB");
