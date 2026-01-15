@@ -7,13 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
-add_executable(SemiEuler ${SOURCES})
+add_executable(CxxGRAV ${SOURCES})
 
 set_target_properties(SemiEuler PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
 
-target_compile_options(SemiEuler PRIVATE -O2)
+target_compile_options(CxxGRAV PRIVATE -O2)
 
 # --- Auto-download Raylib per platform ---
 if (WIN32)
@@ -64,17 +64,17 @@ set(RAYLIB_LIB_DIR     "${RAYLIB_DIR}/lib")
 
 # --- Platform-specific includes and libs ---
 if (WIN32)
-    target_include_directories(SemiEuler PRIVATE ${RAYLIB_INCLUDE_DIR})
-    target_link_directories(SemiEuler PRIVATE ${RAYLIB_LIB_DIR})
-    target_link_libraries(SemiEuler PRIVATE raylib opengl32 gdi32 winmm ws2_32)
+    target_include_directories(CxxGRAV PRIVATE ${RAYLIB_INCLUDE_DIR})
+    target_link_directories(CxxGRAV PRIVATE ${RAYLIB_LIB_DIR})
+    target_link_libraries(CxxGRAV PRIVATE raylib opengl32 gdi32 winmm ws2_32)
 
     if (MSVC)
         # On MSVC, system libs are provided by the Windows SDK — no setup.sh needed
-        target_compile_options(SemiEuler PRIVATE /O2)
-        target_link_options(SemiEuler PRIVATE /INCREMENTAL:NO)
+        target_compile_options(CxxGRAV PRIVATE /O2)
+        target_link_options(CxxGRAV PRIVATE /INCREMENTAL:NO)
     else()
         # MinGW
-        target_link_options(SemiEuler PRIVATE -s)
+        target_link_options(CxxGRAV PRIVATE -s)
     endif()
 
 elseif(UNIX)
@@ -93,10 +93,10 @@ elseif(UNIX)
         endif()
     endif()
 
-    target_include_directories(SemiEuler PRIVATE ${RAYLIB_INCLUDE_DIR})
-    target_link_directories(SemiEuler PRIVATE ${RAYLIB_LIB_DIR})
-    target_link_libraries(SemiEuler PRIVATE raylib m dl pthread X11 GL GLU)
-    target_compile_options(SemiEuler PRIVATE -Wall -Wextra -Wpedantic)
+    target_include_directories(CxxGRAV PRIVATE ${RAYLIB_INCLUDE_DIR})
+    target_link_directories(CxxGRAV PRIVATE ${RAYLIB_LIB_DIR})
+    target_link_libraries(CxxGRAV PRIVATE raylib m dl pthread X11 GL GLU)
+    target_compile_options(CxxGRAV PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
-install(TARGETS SemiEuler DESTINATION bin)
+install(TARGETS CxxGRAV DESTINATION bin)
