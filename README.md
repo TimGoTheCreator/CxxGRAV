@@ -1,4 +1,4 @@
-# SemiEuler
+# CxxGRAV
 ### A Graphical Semi implicit Euler implementation in C++ to simulate interaction of N-Body objects
 
 ![CI](https://github.com/TimGoTheCreator/SemiEuler/actions/workflows/cmake-multi-platform.yml/badge.svg)
