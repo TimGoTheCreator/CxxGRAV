@@ -4,9 +4,13 @@ name: CMake on multiple platforms
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - glsl-experiments
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
+      - glsl-experiments
 
 jobs:
   build:
