@@ -31,13 +31,13 @@ Raylib and other system dependencies are auto-downloaded by CMake.
 # Quick start (For all Operating Systems) 
 ```bash
 git clone https://github.com/TimGoTheCreator/CxxGRAV.git
-cd SemiEuler
+cd CxxGRAV
 mkdir build
 cd build
 cmake ..
 cmake --build . 
 cd bin
-./SemiEuler
+./CxxGRAV
 ```
 
 For this, Git is required
