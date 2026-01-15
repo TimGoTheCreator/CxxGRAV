@@ -1,0 +1,37 @@
+#version 430
+
+layout(local_size_x = 256) in;
+
+struct Particle {
+    vec2 pos;
+    vec2 vel;
+    float mass;
+};
+
+layout(std430, binding = 0) buffer Particles {
+    Particle p[];
+};
+
+uniform float dt;
+uniform float G;
+
+void main() {
+    uint i = gl_GlobalInvocationID.x;
+    if (i >= p.length()) return;
+
+    vec2 force = vec2(0.0);
+
+    for (uint j = 0; j < p.length(); j++) {
+        if (i == j) continue;
+
+        vec2 d = p[j].pos - p[i].pos;
+        float distSq = dot(d, d) + 1e-6;
+        float dist = sqrt(distSq);
+
+        float F = G * p[i].mass * p[j].mass / distSq;
+        force += F * d / (dist * p[i].mass);
+    }
+
+    p[i].vel += force * dt;
+    p[i].pos += p[i].vel * dt;
+}
