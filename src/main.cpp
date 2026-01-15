@@ -35,7 +35,7 @@ int main() {
 
     bool useGPU = false; // 1 = CPU, 2 = GPU
 
-    SetTargetFPS(0);
+    SetTargetFPS(0); // unlimited fps
 
     double dt = 0.4;
     double camX = 0.0;
@@ -115,3 +115,4 @@ int main() {
     CloseWindow();
     return 0;
 }
+
