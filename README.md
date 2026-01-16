@@ -8,14 +8,7 @@
 
 ### CxxGRAV is built on top of the [RayLib](https://github.com/raysan5/raylib) Library
 
-<video src="videos/three_body_stars.mp4"
-       autoplay
-       loop
-       muted
-       playsinline
-       width="800"
-       height="600">
-</video>
+![Three Body Problem](videos/three_body_stars.gif) 
 
 ## Roadmap
 - **Priority 1:** Add particles by clicking
