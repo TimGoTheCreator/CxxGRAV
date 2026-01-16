@@ -8,7 +8,7 @@
 
 ### CxxGRAV is built on top of the [RayLib](https://github.com/raysan5/raylib) Library
 
-<video src="videos/three-body-stars.mp4"
+<video src="videos/three_body_stars.mp4"
        autoplay
        loop
        muted
