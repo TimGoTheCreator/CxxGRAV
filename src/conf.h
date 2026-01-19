@@ -19,7 +19,7 @@ struct Particle
 
 inline void Gravity(Particle& a, Particle& b, double dt)
 {
-    const double G (6.67430e-11);
+    constexpr double G (6.67430e-11);
     double dx = b.x - a.x;
     double dy = b.y - a.y;
     double distSq = dx*dx + dy*dy;
@@ -30,8 +30,8 @@ inline void Gravity(Particle& a, Particle& b, double dt)
         double F = G * a.m * b.m / distSq;
         double ax = F * dx / dist / a.m;
         double ay = F * dy / dist / a.m;
-        double bx = -F * dx / dist / b.m;
-        double by = -F * dy / dist / b.m;
+        double bx = -ax * a.m / b.m;
+        double by = -ay * a.m / b.m;
 
         a.vx += ax * dt;
         a.vy += ay * dt;
