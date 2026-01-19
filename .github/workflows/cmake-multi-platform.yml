@@ -7,10 +7,12 @@ on:
     branches:
       - main
       - glsl-experiments
+      - v1.0.0-beta
   pull_request:
     branches:
       - main
       - glsl-experiments
+      - v1.0.0-beta
 
 jobs:
   build:
